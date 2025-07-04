@@ -1,0 +1,44 @@
+name: final
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        required: true
+        type: choice
+        options: [dev, qa, prod]
+jobs:
+  final_job1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4.2.2
+    - name: installation
+      run: echo " done"
+    - name: env output
+      run: echo "env ${{inputs.env}} done"
+    - name: files
+      run: ls -a && ls .github/workflows
+  final_job2:
+    needs: final_job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: nodejs installation
+        uses: actions/setup-node@v3.9.1
+        with:
+          node-version: 20
+      - name: done
+        run: echo "install done"
+  final_job3:
+    needs: final_job2
+    runs-on: ubuntu-latest
+    steps:
+      - name: install nginx
+        uses: nyurik/action-setup-nginx@v1.1 
+        with:
+          port:80
+      - name: done with nginx
+        run: echo "nginx done"
+      - name: files
+        run: |
+          ls -a
+          ls /var/www/html

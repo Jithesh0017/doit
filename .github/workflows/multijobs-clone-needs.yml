@@ -1,0 +1,19 @@
+name: multi-job
+on: workflow_dispatch
+jobs:
+  first_job:
+    needs: second_job
+    runs-on: ubuntu-latest
+    steps:
+      - name: maa
+        run: echo "super"
+      - name: files
+        run: ls -a
+      - name: cloning
+        uses: actions/checkout@v4.2.2
+
+  second_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dad
+        run: echo "excellent"

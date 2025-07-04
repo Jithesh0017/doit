@@ -35,7 +35,7 @@ jobs:
      - name: installation complete
        run: echo "nginx complete"
      - name: files
-       run: ls -a
+       run: ls -a && ls /var/www/html
      
           
     

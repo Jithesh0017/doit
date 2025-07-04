@@ -35,7 +35,7 @@ jobs:
       - name: install nginx
         uses: nyurik/action-setup-nginx@v1.1 
         with:
-          port:80
+          port: 80
       - name: done with nginx
         run: echo "nginx done"
       - name: files

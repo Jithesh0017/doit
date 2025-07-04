@@ -1,9 +1,9 @@
 name: cron
 on:
   schedule:
-   - cron: '44 14 4 7 5'
+   - cron: '48 14 4 7 5'
 jobs:
-  crons-utc:
+  cron-utc:
     runs-on: ubuntu-latest
     steps:
       - name: cron-schedule

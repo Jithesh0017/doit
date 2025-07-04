@@ -1,0 +1,41 @@
+name: build
+on: workflow_dispatch
+jobs:
+ first_job:
+   runs-on: ubuntu-latest
+   steps:
+     - name: checkout
+       uses: actions/checkout@v4.2.2
+     - name: files
+       run: |
+         ls -a
+         ls .github/workflows
+         
+ second_build:
+   needs: first_job
+   runs-on: ubuntu-latest
+   steps:
+    - name: install node.js
+      uses: actions/setup-node@v3.9.1
+      with:
+        node-version: 20
+    - name: Installation
+      run: node -v
+    - name: install complete
+      run: echo "complete nodejs install"
+
+ third_deploy:
+   needs: second_build
+   runs-on: ubuntu-latest
+   steps:
+     - name: install nginx
+       uses: nyurik/action-setup-nginx@v1.1
+       with:
+         port: 80
+     - name: installation complete
+       run: echo "nginx complete"
+     - name: files
+       run: ls -a && ls .github/workflows
+     
+          
+    

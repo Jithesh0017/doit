@@ -1,0 +1,40 @@
+name: kethesh-build
+on: workflow_dispatch
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4.2.2
+      - name: installation
+        run: echo "done"
+        
+  second_job:
+    needs: first_job
+    runs-on: ubuntu-latest
+    steps:
+      - name: installation nodejs
+        uses: actions/setup-node@v3.9.1
+        with:
+          node-version: 20
+      - name: nodejs complete
+        run: echo "completed nodejs setup and installation"
+
+  deploy_job:
+     needs: second_job
+     runs-on: ubuntu-latest
+     steps:
+       - name: installation nginx
+         uses: nyurik/action-setup-nginx@v1.1
+         with:
+           port: 80
+       - name: complete
+         run: echo "done with nginx port"
+       - name: files
+         run: ls -a && ls /var/www/html
+
+
+    
+   
+
+  

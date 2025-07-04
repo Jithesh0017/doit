@@ -1,5 +1,11 @@
-name: build
-on: workflow_dispatch
+name: env
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        required: true
+        type: choice
+        options: [dev, prod]
 jobs:
  first_job:
    runs-on: ubuntu-latest
@@ -25,7 +31,9 @@ jobs:
       run: echo "complete nodejs install"
 
  third_deploy:
-   needs: second_build
+   needs: 
+     - first_job
+     - second_build   
    runs-on: ubuntu-latest
    steps:
      - name: install nginx

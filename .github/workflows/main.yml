@@ -1,0 +1,8 @@
+name: manual push
+on: workflow_dispatch
+jobs:
+  manual:
+    runs-on: ubuntu-latest
+    steps:
+      - name: manual-trigger
+        run: echo "push"

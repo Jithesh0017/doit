@@ -1,8 +1,0 @@
-name: yaml
-on: push
-jobs:
- name: yaml-1
-  runs-on: ubuntu-latest
-  steps:
-  - name: yaml script
-    run: echo"hi"

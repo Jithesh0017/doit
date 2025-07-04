@@ -7,10 +7,10 @@ jobs:
     steps:
       - name: maa
         run: echo "super"
-      - name: files
-        run: ls -a
       - name: cloning
         uses: actions/checkout@v4.2.2
+      - name: files
+        run: ls -a
 
   second_job:
     runs-on: ubuntu-latest

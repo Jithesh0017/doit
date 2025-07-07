@@ -7,11 +7,11 @@ jobs:
       - name: docker login
         run: echo "${{secrets. DOCKER_PASSWORD }} | docker login -u jithesh0017" ${{ vars.DOCKER_USERNAME }} --password-stdin
       - name: pull image
-        run: docker pull image doit:latest
+        run: docker pull image nginx:latest
       - name: rename image
-        run: docker image tag doit:latest ${{ vars.DOCKER_USERNAME }}/nginx:latest
+        run: docker image tag nginx:latest ${{ vars.DOCKER_USERNAME }}/doit:latest
       - name: image list
         run: docker image ls
       - name: push request
-        run: docker push ${{ vars.DOCKER_USERNAME }}/nginx:latest
+        run: docker push ${{ vars.DOCKER_USERNAME }}/doit:latest
       

@@ -4,6 +4,8 @@ jobs:
  dockertest:
    runs-on: ubuntu-latest
    steps:
+     - name: checkout
+       uses: actions/checkout@v4.2.2
      - name: docker login
        run: echo "${{ secrets.DC_PASSWORD }} | docker login -u jithesh0017" --password-stdin
      - name: pull existing image

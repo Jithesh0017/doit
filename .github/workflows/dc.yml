@@ -6,10 +6,10 @@ jobs:
    steps:
      - name: docker login
        run: echo "${{ secrets.DC_PASSWORD }} | docker login -u jithesh0017" --password-stdin
-     - name: docker pull image
-       run: pull image nginx:latest
+     - name: pull existing image
+       run: docker pull nginx:latest
      - name: rename image
-       run: docker image tag nginx:latest ${{ vars. DC_USERNAME }}/nginx:latest
+       run: docker tag nginx:latest ${{ vars. DC_USERNAME }}/nginx:latest
      - name: docker push
        run: docker push ${{ vars. DC_USERNAME }}/nginx:latest
      - name: docker image list

@@ -11,5 +11,7 @@ jobs:
       - name: remove nginx
         run: sudo rm -rf /var/www/html/*
       - name: git clone doit
-        run: sudo git clone 
+        run: sudo git clone https://github.com/Jithesh0017/doit.git /var/www/html
+      - name: restart nginx
+        run: sudo systemctl restart nginx
     

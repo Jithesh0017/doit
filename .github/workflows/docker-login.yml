@@ -9,7 +9,7 @@ jobs:
       - name: pull existing image
         run: docker pull nginx:latest
       - name: rename the image
-        run: docker image tag doit ${{ vars.DOCKER_USERNAME }}/nginx:latest
+        run: docker image tag doit:latest ${{ vars.DOCKER_USERNAME }}/nginx:latest
       - name: list images
         run: docker image ls
       - name: push image to docker hub

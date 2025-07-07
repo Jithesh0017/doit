@@ -1,24 +1,20 @@
 name: docker hub login
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 jobs:
-  docker-login:
+  docker:
     runs-on: ubuntu-latest
     steps:
-      - name: login to dockerhub
-        run: echo "${{ secrets.DOCKER_PASSWORD }} | docker login -u jithesh0017" --password-stdin
-      - name: pull existing image
-        run: docker pull nginx:latest
-      - name: rename the image
-        run: docker image tag nginx:latest ${{ vars.DOCKER_USERNAME }}/new-nginx:latest
-      - name: list images
-        run: docker image ls
-      - name: push image to docker hub
-        run: docker push ${{ vars.DOCKER_USERNAME }}/new-nginx
-  actions: 
-    runs-on: ubuntu-latest
-    steps:
-      - name: Docker Login
+      - name: checkout
+        uses: actions/checkout@v4.2.2
+      - name: docker hub login
         uses: docker/login-action@v3.4.0
-        with: 
+        with:
           username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: docker pull existing image
+        run: docker pull nginx:latest
+      - name: docker new
+        run: docker tag nginx:latest ${{ vars.DOCKER_USERNAME }}/new-nginx:latest
+      - name: push image
+        run: docker push ${{ vars.DOCKER_USERNAME }}/new-nginx:latest

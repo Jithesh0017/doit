@@ -1,11 +1,5 @@
 name: docker-login
-on: 
-  workflow_dispatch:
-    inputs:
-      secrets:
-      env:
-      username: ${{ DOCKER_USERNAME }}
-      password: ${{ DOCKER_PASSWORD }}
+on: workflow_dispatch
 jobs:
   docker_login:
     runs-on: ubuntu-latest

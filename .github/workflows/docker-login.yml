@@ -15,6 +15,6 @@ jobs:
       - name: docker pull existing image
         run: docker pull nginx:latest
       - name: docker new
-        run: docker tag nginx:latest ${{ vars.DOCKER_USERNAME }}/new-nginx:latest
+        run: docker tag nginx:latest ${{ vars.DOCKER_USERNAME }}/git-nginx:latest
       - name: push image
-        run: docker push ${{ vars.DOCKER_USERNAME }}/new-nginx:latest
+        run: docker push ${{ vars.DOCKER_USERNAME }}/git-nginx:latest

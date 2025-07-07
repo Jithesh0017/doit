@@ -10,6 +10,4 @@ jobs:
         run: docker pull nginx:latest
       - name: image list
         run: docker image ls
-      - name: push request
-        run: docker push ${{ vars.DOCKER_USERNAME }}/nginx:latest
       

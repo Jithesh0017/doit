@@ -1,0 +1,14 @@
+name: docker-login
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+      username: ${{ DOCKER_USERNAME }}
+      password: ${{ DOCKER_PASSWORD }}
+jobs:
+  docker_login:
+    runs-on: ubuntu-latest
+    steps:
+      - name: docker login
+        run: echo "${{ secrets.DOCKER_PASSWORD }} | docker login -u jithesh0017" ${{ vars.DOCKER_USERNAME }} --password-stdin
+      

@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: docker login
-        run: echo "${{secrets. DOCKER_PASSWORD }}" | docker login -u jithesh0017 ${{ vars.DOCKER_USERNAME }} --password-stdin
+        run: echo "${{secrets. DOCKER_PASSWORD }} | docker login -u jithesh0017" ${{ vars.DOCKER_USERNAME }} --password-stdin
       - name: pull image
         run: docker pull image doit:latest
       - name: rename image

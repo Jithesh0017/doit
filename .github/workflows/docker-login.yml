@@ -7,13 +7,13 @@ jobs:
       - name: login to dockerhub
         run: echo "${{ secrets.DOCKER_PASSWORD }} | docker login -u jithesh0017" ${{ vars.DOCKER_USERNAME }} --password-stdin
       - name: pull existing image
-        run: docker pull nginx:latest
+        run: docker pull doit
       - name: rename the image
-        run: docker image tag nginx:latest ${{ vars.DOCKER_USERNAME }}/nginx:latest
+        run: docker image tag nginx:doit ${{ vars.DOCKER_USERNAME }}/nginx:doit
       - name: list images
         run: docker image ls
       - name: push image to docker hub
-        run: docker push ${{ vars.DOCKER_USERNAME }}/nginx:latest
+        run: docker push ${{ vars.DOCKER_USERNAME }}/nginx:doit
   actions: 
     runs-on: ubuntu-latest
     steps:

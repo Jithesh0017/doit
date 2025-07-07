@@ -1,5 +1,5 @@
 
-name: docker hub login
+name: cicd-docker
 on:
   workflow_dispatch:
 jobs:

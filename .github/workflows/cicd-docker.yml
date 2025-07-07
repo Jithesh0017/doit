@@ -20,4 +20,4 @@ jobs:
       - name: push image
         run: docker push ${{ vars.DC_USERNAME }}/hub-nginx:latest
       - name: list image
-        run: ls image 
+        run: ls image -a

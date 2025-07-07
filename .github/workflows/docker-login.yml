@@ -4,7 +4,7 @@ jobs:
   docker_login:
     runs-on: ubuntu-latest
     steps:
-      - name: Docker Login
+      - name: docker login
         uses: docker/login-action@3.4.0
         with:
           username: ${{ vars.DOCKER_USERNAME }}

@@ -1,0 +1,11 @@
+name: kethesh
+on:
+  push:
+    branches:
+      - main
+jobs:
+  one:
+    runs-on: ubuntu-latest
+    steps:
+      - name: kethesh
+        run: echo "hello"
